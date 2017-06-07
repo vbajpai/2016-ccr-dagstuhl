@@ -1,0 +1,377 @@
+\documentclass{sigcomm-alternate}
+\pdfpagewidth=8.5in
+\pdfpageheight=11in
+
+% added by Vaibhav
+%----------------------------------------------------------------------
+\usepackage{cite}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[nolist]{acronym}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage[font=footnotesize,caption=false]{subfig}
+\usepackage[multiple]{footmisc}
+\usepackage{color,soul}
+\usepackage{amsfonts}
+\usepackage{epigraph}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\definecolor{gray}{gray}{0.93}
+%----------------------------------------------------------------------
+
+\input{acronyms.tex}
+\begin{document}
+
+\title{Dagstuhl Perspectives Workshop on Global Measurements: Practice and
+Experience}
+\title{Global Measurements: Practice and Experience \\ (Report on Dagstuhl Seminar \#16012)}
+
+\numberofauthors{1}
+\author{
+\begin{tabular*}{0.9\textwidth}%
+{@{\extracolsep{\fill}}ccc}
+Vaibhav Bajpai & Arthur W. Berger & Philip Eardley \\
+\affaddr{Jacobs University} & \affaddr{Akamai Technologies} & \affaddr{British Telecom R\&D} \\
+\affaddr{Bremen, DE} & \affaddr{Cambridge, US} & \affaddr{Ipswich, GB} \\
+\email{v.bajpai@jacobs-university.de} & \email{awberger@csail.mit.edu} & \email{philip.eardley@bt.com}
+\end{tabular*}\\
+\begin{tabular}{c}
+\end{tabular}\\
+\begin{tabular*}{0.6\textwidth}%
+{@{\extracolsep{\fill}}cc}
+Jörg Ott & Jürgen Schönwälder \\
+\affaddr{TU München} & \affaddr{Jacobs University} \\
+\affaddr{München, DE} & \affaddr{Bremen, DE} \\
+\email{ott@in.tum.de} & \email{j.schoenwaelder@jacobs-university.de}
+\end{tabular*}\\
+\begin{tabular}{c}
+\end{tabular}\\
+\begin{tabular}{c}
+{\normalsize This article is an editorial note submitted to CCR. It has NOT
+been peer reviewed.}\\
+{\normalsize The authors take full responsibility for this article's
+technical content. Comments can be posted through CCR Online.}
+\end{tabular}
+}
+
+\maketitle
+
+\begin{abstract}
+
+This article summarises a 2.5 day long Dagstuhl seminar on Global
+Measurements: Practice and Experience held in January 2016.  This seminar was
+a followup of the seminar on Global Measurement Frameworks held in 2013, which
+focused on the development of global Internet measurement platforms and
+associated metrics.  The second seminar aimed at discussing the practical
+experience gained with building these global Internet measurement platforms.
+It brought together people who are actively involved in the design and
+maintenance of global Internet measurement platforms and who do research on
+the data delivered by such platforms. Researchers in this seminar have used
+data derived from global Internet measurement platforms in order to manage
+networks or services or as input for regulatory decisions. The entire set of
+presentations delivered during the seminar is made publicly available at
+\cite{dagstuhl-materials}.
+
+\end{abstract}
+
+% referrred: http://www.acm.org/about/class/ccs98-html
+%\category{C.2.3}{Computer-Communication Networks}{Network Operations}[Network
+%monitoring]
+
+% referred: http://www.acm.org/sigs/publications/sigguide-v2.2sp
+%\terms{Measurement, Performance}
+
+\keywords{Internet measurements, Quality of experience, Network management,
+Traffic engineering}
+
+% sections
+%----------------------------------------------------------------------
+\input{sections/introduction}
+\input{sections/invited-presentations}
+\input{sections/parallel-group-work}
+\input{sections/lightning-talks}
+\input{sections/conclusion}
+\input{sections/acknowledgements}
+%----------------------------------------------------------------------
+
+% bibliography
+%----------------------------------------------------------------------
+\bibliographystyle{abbrv}
+
+\begin{thebibliography}{10}
+
+\bibitem{dagstuhl-materials}
+{Dagstuhl Seminar \#16012 – Global Measurements: Practice and Experience:
+  Materials}.
+\newblock \url{http://materials.dagstuhl.de/index.php?semnr=16012}.
+\newblock [Online; accessed 18-January-2016].
+
+\bibitem{flamingo}
+{Flamingo - Management of the Future Internet}.
+\newblock \url{http://www.fp7-flamingo.eu}.
+\newblock [Online; accessed 18-January-2016].
+
+\bibitem{leone}
+{Leone - From Global Measurements to Local Management}.
+\newblock \url{http://www.leone-project.eu}.
+\newblock [Online; accessed 18-January-2016].
+
+\bibitem{mami}
+{MAMI - Measurement and Architecture for a Middleboxed Internet}.
+\newblock \url{https://mami-project.eu}.
+\newblock [Online; accessed 18-January-2016].
+
+\bibitem{mba}
+{Measuring Broadband America - Federal Communications Commission}.
+\newblock \url{https://www.fcc.gov/general/measuring-broadband-america}.
+\newblock [Online; accessed 18-January-2016].
+
+\bibitem{soti}
+{State of the Internet - Akamai}.
+\newblock \url{https://www.stateoftheinternet.com}.
+\newblock [Online; accessed 18-January-2016].
+
+\bibitem{ethics}
+{Workshop on Ethics in Networked Systems Research - ACM SIGCOMM 2015}.
+\newblock \url{http://conferences.sigcomm.org/sigcomm/2015/netethics.php}.
+\newblock [Online; accessed 18-January-2016].
+
+\bibitem{ripencc:ipj:2015}
+{RIPE Atlas: A Global Internet Measurement Network}.
+\newblock {\em Internet Protocol Journal}, Sept. 2015.
+
+\bibitem{mallman:imc:2007}
+M.~Allman and V.~Paxson.
+\newblock {Issues and Etiquette Concerning Use of Shared Measurement Data}.
+\newblock IMC '07, pages 135--140. ACM, 2007.
+
+\bibitem{anonymous:ccr:2012}
+Anonymous.
+\newblock {The Collateral Damage of Internet Censorship by DNS Injection}.
+\newblock {\em SIGCOMM Comput. Commun. Rev.}, 42(3):21--27, June 2012.
+
+\bibitem{vbajpai:ccr:2015}
+V.~Bajpai, S.~J. Eravuchira, and J.~Sch\"{o}nw\"{a}lder.
+\newblock {Lessons Learned From Using the RIPE Atlas Platform for Measurement
+  Research}.
+\newblock {\em SIGCOMM Comput. Commun. Rev.}, 45(3):35--42, July 2015.
+
+\bibitem{vbajpai:comst:2015}
+V.~Bajpai and J.~Sch\"onw\"alder.
+\newblock {A Survey on Internet Performance Measurement Platforms and Related
+  Standardization Efforts}.
+\newblock {\em Communications Surveys Tutorials, IEEE}, 17(3):1313--1341,
+  thirdquarter 2015.
+
+\bibitem{sburnett:sigcomm:2015}
+S.~Burnett and N.~Feamster.
+\newblock {Encore: Lightweight Measurement of Web Censorship with Cross-Origin
+  Requests}.
+\newblock SIGCOMM '15. ACM, 2015.
+
+\bibitem{jcappos:sigcse:2009}
+J.~Cappos, I.~Beschastnikh, A.~Krishnamurthy, and T.~Anderson.
+\newblock {Seattle: A Platform for Educational Cloud Computing}.
+\newblock SIGCSE '09. ACM, 2009.
+
+\bibitem{fchen:sigcomm:2015}
+F.~Chen, R.~K. Sitaraman, and M.~Torres.
+\newblock {End-User Mapping: Next Generation Request Routing for Content
+  Delivery}.
+\newblock SIGCOMM '15. ACM, 2015.
+
+\bibitem{kclaffy:ccr:2016}
+k.~claffy.
+\newblock {The 7th Workshop on Active Internet Measurements (AIMS7) Report}.
+\newblock {\em SIGCOMM Comput. Commun. Rev.}, 46(1):50--57, Jan. 2016.
+
+\bibitem{jcohen:dagstuhl:2014}
+J.~E. Cohen, S.~Dietrich, A.~Pras, L.~D. Zuck, and H.~Mireille.
+\newblock {Ethics in Data Sharing (Dagstuhl Seminar 14052)}.
+\newblock {\em Dagstuhl Reports}, 4(1):170--183, 2014.
+
+\bibitem{gdetal:imc:2013}
+G.~Detal, B.~Hesmans, O.~Bonaventure, Y.~Vanaubel, and B.~Donnet.
+\newblock {Revealing Middlebox Interference with Tracebox}.
+\newblock IMC '13. ACM, 2013.
+
+\bibitem{roland:creds:2014}
+S.~Dietrich, J.~van~der Ham, A.~Pras, R.~van Rijswijk-Deij, D.~Shou,
+  A.~Sperotto, A.~van Wynsberghe, and L.~Zuck.
+\newblock {Ethics in Data Sharing: developing a model for best practice}.
+\newblock CREDS II, 2014.
+
+\bibitem{mdischinger:imc:2007}
+M.~Dischinger, A.~Haeberlen, K.~P. Gummadi, and S.~Saroiu.
+\newblock {Characterizing Residential Broadband Networks}.
+\newblock IMC '07. ACM, 2007.
+
+\bibitem{menloreport}
+D.~Dittrich and E.~Kenneally.
+\newblock {The Menlo Report: Ethical Principles Guiding Information and
+  Communication Technology Research}.
+\newblock Technical report, U.S. Department of Homeland Security, 2012.
+
+\bibitem{bstiller:aims:2015}
+D.~D{\"{o}}nni, G.~S. Machado, C.~Tsiaras, and B.~Stiller.
+\newblock {Schengen Routing: {A} Compliance Analysis}.
+\newblock In {\em {AIMS} 2015, Ghent, Belgium, June 22-25, 2015.}, 2015.
+
+\bibitem{cdovrolis:ccr:2010}
+C.~Dovrolis, K.~Gummadi, A.~Kuzmanovic, and S.~D. Meinrath.
+\newblock {Measurement Lab: Overview and an Invitation to the Research
+  Community}.
+\newblock {\em SIGCOMM Comput. Commun. Rev.}, 40(3):53--56, June 2010.
+
+\bibitem{peardley:dagstuhl:2013}
+P.~Eardley, M.~Mellia, J.~Ott, J.~Sch{\"o}nw{\"a}lder, and H.~Schulzrinne.
+\newblock {Global Measurement Framework (Dagstuhl Seminar 13472)}.
+\newblock {\em Dagstuhl Reports}, 2014.
+
+\bibitem{rfc7594}
+P.~Eardley, A.~Morton, M.~Bagnulo, T.~Burbridge, P.~Aitken, and A.~Akhter.
+\newblock {A Framework for Large-Scale Measurement of Broadband Performance
+  (LMAP)}.
+\newblock RFC 7594 (Informational), Sept. 2015.
+
+\bibitem{gcarle:imc:2015}
+P.~Emmerich, S.~Gallenm\"{u}ller, D.~Raumer, F.~Wohlfart, and G.~Carle.
+\newblock {MoonGen: A Scriptable High-Speed Packet Generator}.
+\newblock IMC '15. ACM, 2015.
+
+\bibitem{draft-tsvwg-quic-protocol}
+R.~Hamilton, J.~Iyengar, I.~Swett, and A.~Wilk.
+\newblock {QUIC: A UDP-Based Secure and Reliable Transport for HTTP/2}.
+\newblock Internet-Draft draft-tsvwg-quic-protocol-02, Internet Engineering
+  Task Force, Jan. 2016.
+
+\bibitem{mhonda:imc:2011}
+M.~Honda, Y.~Nishida, C.~Raiciu, A.~Greenhalgh, M.~Handley, and H.~Tokuda.
+\newblock {Is It Still Possible to Extend TCP?}
+\newblock IMC '11. ACM, 2011.
+
+\bibitem{pgill:comcom:2011}
+B.~Krishnamurthy, W.~Willinger, P.~Gill, and M.~Arlitt.
+\newblock {A Socratic method for validation of measurement-based networking
+  research}.
+\newblock {\em Computer Communications}, 34(1):43 -- 53, 2011.
+
+\bibitem{skrishnan:imc:2012}
+S.~S. Krishnan and R.~K. Sitaraman.
+\newblock {Video Stream Quality Impacts Viewer Behavior: Inferring Causality
+  Using Quasi-experimental Designs}.
+\newblock IMC '12, 2012.
+
+\vfill\eject
+
+\bibitem{mluckie:imc:2010}
+M.~Luckie.
+\newblock {Scamper: A Scalable and Extensible Packet Prober for Active
+  Measurement of the Internet}.
+\newblock IMC '10. ACM, 2010.
+
+\bibitem{mfiedler:commantel:2013}
+T.~N. Minhas and M.~Fiedler.
+\newblock {Quality of experience hourglass model}.
+\newblock In {\em ComManTel 2013}, Jan 2013.
+
+\bibitem{draft-ietf-ippm-active-passive}
+A.~Morton.
+\newblock {Active and Passive Metrics and Methods (and everything in-between,
+  or Hybrid)}.
+\newblock Internet-Draft draft-ietf-ippm-active-passive-06, Internet
+  Engineering Task Force, Jan. 2016.
+
+\bibitem{hnam:infocom:2016}
+H.~Nam, K.-H. Kim, and H.~Schulzrinne.
+\newblock {QoE Matters More Than QoS: Why People Stop Watching Cat Videos}.
+\newblock In {\em INFOCOM, 2016 (to appear)}, April 2016.
+
+\bibitem{apathak:pam:2010}
+A.~Pathak, Y.~A. Wang, C.~Huang, A.~Greenberg, Y.~C. Hu, R.~Kern, J.~Li, and
+  K.~W. Ross.
+\newblock {Measuring and Evaluating TCP Splitting for Cloud Services}.
+\newblock PAM'10, pages 41--50. Springer-Verlag, 2010.
+
+\bibitem{vpaxson:imc:2004}
+V.~Paxson.
+\newblock {Strategies for Sound Internet Measurement}.
+\newblock IMC '04, pages 263--271. ACM, 2004.
+
+\bibitem{ssundaresan:arxiv:2015}
+A.~Razaghpanah, N.~Vallina{-}Rodriguez, S.~Sundaresan, C.~Kreibich, P.~Gill,
+  M.~Allman, and V.~Paxson.
+\newblock {Haystack: In Situ Mobile Traffic Analysis in User Space}.
+\newblock {\em CoRR}, abs/1510.01419, 2015.
+
+\bibitem{rteixeira:pam:2012}
+A.~Reggani, F.~Schneider, and R.~Teixeira.
+\newblock {An End-Host View on Local Traffic at Home and Work}.
+\newblock {PAM} '12, pages 21--31, 2012.
+
+\bibitem{rbush:jsac:2011}
+M.~Roughan, W.~Willinger, O.~Maennel, D.~Perouli, and R.~Bush.
+\newblock {10 Lessons from 10 Years of Measuring and Modeling the Internet's
+  Autonomous Systems}.
+\newblock {\em JSAC}, 29(9):1810--1821, October 2011.
+
+\bibitem{gcarle:tma:2015}
+J.~Schlamp, R.~Holz, O.~Gasser, A.~Korsten, Q.~Jacquemart, G.~Carle, and E.~W.
+  Biersack.
+\newblock {Investigating the Nature of Routing Anomalies: Closing in on
+  Subprefix Hijacking Attacks}.
+\newblock {TMA} '15.
+
+\bibitem{rsitaraman:wiley:2014}
+R.~K. Sitaraman, M.~Kasbekar, W.~Lichtenstein, and M.~Jain.
+\newblock {\em {Overlay Networks: An Akamai Perspective}}, pages 305--328.
+\newblock John Wiley \& Sons, Inc., 2014.
+
+\bibitem{ssonntag:wiopt:2013}
+S.~Sonntag, J.~Manner, and L.~Schulte.
+\newblock {Netradar - Measuring the wireless world}.
+\newblock WiOpt '13, May 2013.
+
+\bibitem{ssundaresan:usenix:2014}
+S.~Sundaresan, S.~Burnett, N.~Feamster, and W.~De~Donato.
+\newblock {BISmark: A Testbed for Deploying Measurements and Applications in
+  Broadband Access Networks}.
+\newblock USENIX ATC'14, pages 383--394, 2014.
+
+\bibitem{ssundaresan:pam:2015}
+S.~Sundaresan, N.~Feamster, and R.~Teixeira.
+\newblock {Measuring the Performance of User Traffic in Home Wireless
+  Networks}.
+\newblock {PAM} '15, pages 305--317, 2015.
+
+\bibitem{btrammell:commag:2014}
+B.~Trammell, P.~Casas, D.~Rossi, A.~Bar, Z.~Houidi, I.~Leontiadis, T.~Szemethy,
+  and M.~Mellia.
+\newblock {mPlane: an Intelligent Measurement Plane for the Internet}.
+\newblock {\em IEEE Communications Magazine}, 52(5):148--156, May 2014.
+
+\bibitem{roland:tnc:2015}
+R.~van Rijswijk-Deij.
+\newblock {Ethics in Data Sharing: a best practice for NRENs}.
+\newblock TNC '15. G\'{E}ANT, 2015.
+
+\bibitem{roland:sigcomm:2015}
+R.~van Rijswijk-Deij, M.~Jonker, A.~Sperotto, and A.~Pras.
+\newblock {The Internet of Names: A DNS Big Dataset}.
+\newblock SIGCOMM '15, pages 91--92. ACM, 2015.
+
+\bibitem{twhite:oreilly:2015}
+T.~White.
+\newblock {\em {Hadoop - The Definitive Guide: Storage and Analysis at Internet
+  Scale {(4.} ed., revised {\&} updated)}}.
+\newblock O'Reilly, 2015.
+
+\end{thebibliography}
+
+%----------------------------------------------------------------------
+
+\end{document}

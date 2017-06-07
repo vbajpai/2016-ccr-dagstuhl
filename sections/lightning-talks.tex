@@ -1,0 +1,180 @@
+%**************************************************************************
+\section{Lightning Talks}\label{sec:lightning-talks}
+%**************************************************************************
+
+Participants were also encouraged to volunteer for a lightning talk to provide
+a perspective into their recent measurement research work.
+
+% -------- Renata
+%\subsection{HostView: Measuring Internet quality of experience on end-hosts}
+\subsection{HostView}
+
+There is interest in automated performance diagnosis on user laptops or
+desktops. One interesting aspect that has received little attention is the
+user perspective on performance. To conduct research on both end-host
+performance diagnosis and user perception of network and application
+performance, Renata Teixeira (INRIA) presented an end-host data collection
+tool, called HostView. HostView \cite{rteixeira:pam:2012} not only collects
+network, application and machine level data, but also gathers feedback
+directly from users. User feedback is obtained via two mechanisms: a
+system-triggered questionnaire and a user-triggered feedback form. In her
+talk, she described experiences with the first deployment of HostView. Using
+data from 40 users, she articulated challenges in this line of research, and
+reported initial findings in correlating user data to system-level data. She
+then described more recent efforts in conducting an in-depth study with 12
+users in France to guide the design of the next version of HostView and of
+methods to infer user context and activities.
+
+% -------- Al Morton:
+\subsection{Virtual Measurement Accuracy}
+
+The movement towards \ac{NFV} means that measurement system virtualisation
+will take place for active, passive, and hybrid methods of measurement. This
+evolution will allow on-demand deployment of measurement systems in general
+purpose servers. The designs must be cost-effective, but there is tension
+between cost of physical resources and accuracy.  Al Morton (AT\&T) presented
+this trade-off and associated challenges.
+
+% -------- Brian Trammell:
+\subsection{A Path Transparency Observatory}
+
+The growing deployment of middle boxes in the Internet has reduced the degree
+to which the Internet is still an end-to-end network in accordance with its
+original design. This lack of end-to-endness leads to ossification of the
+transport layer \cite{mhonda:imc:2011}: new protocols are difficult or
+impossible to deploy as they must be designed around middle boxes, either
+those which have been observed, or conjectured to exist. It is necessary to
+guide protocol engineering for transport protocol innovation on a basis of
+observations of the Internet as it is, but these observations are hard to come
+by. Brian Trammell (ETH Z\"urich) proposed a Path Transparency Observatory,
+which can take observations of path transparency (the likelihood a packet
+stream that arrives at the end of the path is the one that was sent, with
+certain properties) and impairment (something that keeps a path from being
+transparent for a certain kind of traffic) from multiple sources, with
+multiple resolutions of condition definition and information about the
+endpoints and path involved. An observatory collects single observations of a
+path and a condition on that path at some point in time, with references to
+the code that created the observations so they can be repeated, and a set of
+equivalence functions so that equivalent conditions and paths can be compared.
+He explained that this work is ongoing, and a public observatory will become
+available within the scope of the \ac{MAMI} project \cite{mami} over next two
+and a half years.
+
+% -------- Varun Singh
+%\subsection{One year of measuring WebRTC service quality in the Wild}
+\subsection{WebRTC Service Quality in the Wild}
+
+Varun Singh (Aalto University) introduced callstats.io, a \ac{WebRTC}
+analytics and diagnostics service. It measures service- and conference-level
+metrics for a \ac{WebRTC} application service. At the service-level,
+annoyances (such as, how often do conferences fail, what are the reasons for
+failure and what is the typical network latency?) are measured. Varun
+described how callstats.io will share the aggregate quality metrics measured
+across tens of \ac{WebRTC} services (big and small, local and global) with the
+measurement community at large.
+
+% -------- Georg Carle:
+\subsection{From Local to Global Measurements}
+
+Georg Carle (TU M\"unchen) provided a summary of measurement based research
+work conducted within his group. He explained that understanding Internet
+phenomena requires both local and global measurements. Local measurements such
+as on the MEMPHIS test bed allows for reproducible experiments. As part of
+this project, the MoonGen Traffic generator \cite{gcarle:imc:2015} is an
+example that allows for high precision by directly accessing hardware features
+such as precise time stamping from the application space, while bypassing the
+operating system.  Furthermore, Georg reasoned how \ac{SDN} mechanisms can be
+used for performing very high-speed flow monitoring using \ac{COTS} components
+and adaptive load-balancing. One objective of security-related global
+measurements is to identify prefix hijacking. An innovative approach
+\cite{gcarle:tma:2015} to identify benign anomalies is to use information with
+business relations and ownership information from a publicly accessible
+\ac{IRR} to combine it with collected TLS certificates, and using these
+certificates as fixed points to be checked in time intervals in which routing
+anomalies are observed. For performing measurements with wireless links, he
+presented the MeasrDroid Android app, which allows to perform wireless
+measurements from many vantage points.
+
+% -------- Markus Fiedler
+\subsection{From Packet Counts to QoE}
+
+Markus Fiedler (BTH) discussed challenges in measuring \ac{QoE}. He stressed
+that the main challenge for the interpretation of network measurements in
+light of \ac{QoE} is that user perception happens far up the network stack,
+far away from where \ac{QoS} problems (such as latency and packet loss) arise
+and where monitoring takes place.  \ac{QoS} may be transformed significantly
+throughout the stack. The recently proposed \ac{QoE} Hourglass Model
+\cite{mfiedler:commantel:2013} is one way to formalize such transformations,
+capturing impacts of transport protocols, display devices and other factors.
+Using an example from a project with a major European telecommunications
+provider, he proposed a method that enables the exploitation of information
+from packet counters for \ac{QoE} assessment.  It starts with the definition
+of the user-perceived problem to be attacked, followed by the determination of
+parameters that reflect those problems far down in the network stack, and of
+the critical timescale for the user, and finally the use of appropriate
+comparative summary statistics.
+
+% -------- Ian Marsh
+%\subsection{CheesePi - Swedish home network monitoring}
+\subsection{CheesePi}
+
+Ian Marsh (SICS) described the architecture of a distributed measurement
+system, CheesePi. He utilized the IETF LMAP framework \cite{rfc7594}
+terminology to describe this system.  CheesePi uses Raspberry Pi hardware
+devices to allow always-on, simple and reliable monitoring of users’ home
+Internet connections. By running CheesePi on a Raspberry Pi (termed a \ac{MA})
+connected to their home network, a non-expert user can continuously monitor
+their connection quality. He argued that a common hardware platform for all
+\ac{MA}s gives greater consistency between the collected measurements and it
+also simplifies the codebase. The result is a common software platform for
+measurement tasks that can host, execute and record arbitrary network
+behaviour. Ian explained the reason for deploying dedicated monitoring
+devices. The project is tailored towards capturing the network connectivity
+that devices are able to achieve. This can significantly depend on the last
+hop technology (e.g. Ethernet or WiFi), which would be missed by passive
+monitoring of user traffic at the home gateway.  This work is performed in
+collaboration with the Swedish regulator \ac{PTS}, who are particularly
+concerned with expanding connection performance metrics from naive throughput
+measurements of a particular location and time to something more instructive.
+He argued that an easily comparable and widely understood metric (e.g.,
+download/upload rates) does not necessarily indicate the \ac{QoE} of a user.
+
+% -------- Burkhard Stiller:
+%\subsection{Schengen Routing: A Compliance Analysis}
+\subsection{Schengen Routing}
+
+Burkhard Stiller (UZH) described Schengen routing as a strategy to keep
+traffic originating from sources located in the Schengen area (an area
+comprising of 26 European countries that have abolished passport and any other
+type of border control at their common borders)  and targeted to destinations
+located in the Schengen area within the Schengen area. He summarised results
+of a larger-scale measurement effort \cite{bstiller:aims:2015} performed to
+quantify Schengen routing compliance in parts of today's Internet. Based on a
+few thousand TCP, UDP, and ICMP \texttt{traceroute} measurements executed from
+RIPE Atlas probes located in over 1100 different \ac{AS} in the Schengen area,
+it was observed that 34.5\% to 39.7\% of these routes are Schengen-compliant,
+while compliance levels vary from 0\% to 80\% among countries.
+
+% -------- Srikanth and/or Phillipa
+%\subsection{Haystack - Mobile traffic monitoring in user space}
+\subsection{Haystack}
+
+Despite our growing reliance on mobile phones for a wide range of daily tasks,
+we remain largely in the dark about the operation and performance of our
+devices, including how (or whether) they protect the information we entrust to
+them, and with whom they share it. The absence of easy, device-local access to
+the traffic of our mobile phones presents a fundamental impediment to
+improving this state of affairs. To develop detailed visibility, Srikanth
+Sundaresan (ICSI) presented Haystack \cite{ssundaresan:arxiv:2015}, a system
+for unobtrusive and comprehensive monitoring of network communications on
+mobile phones, entirely from user-space. Haystack correlates disparate
+contextual information such as app identifiers and radio state with specific
+traffic flows destined to remote services, even if encrypted.  Haystack
+facilitates user-friendly, large-scale deployment of mobile traffic
+measurements and services to illuminate mobile app performance, privacy and
+security. Srikanth described the design of Haystack and demonstrated its
+feasibility with an implementation that provides 26-55 Mbps throughput with
+less than 5\% CPU overhead. He stressed that the system and results highlight
+the potential for client-side traffic analysis to help understand the mobile
+ecosystem at scale.
+

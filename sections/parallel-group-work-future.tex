@@ -1,0 +1,58 @@
+% --------- 1. Measurement method evolution
+
+Measurement methods will evolve beyond traditional active and passive
+techniques. Al Morton in \cite{draft-ietf-ippm-active-passive} describes
+hybrid measurement methods which are subset of both active and passive
+methods. For instance, Type I hybrid measurements employ methods that augment
+or modify the stream of interest, while Type II hybrid measurements employ
+methods that utilize two or more streams of interest with some degree of
+mutual coordination to collect multiple metrics.
+
+% --------- 2. Measurements involving wireless links
+
+A number of Internet measurement tools are designed with inherent assumptions
+(about layer-2 networks) \cite{ssundaresan:pam:2015} that are not true for
+underlying wireless links.  In particular WiFi home networks and cellular
+networks are impacted by bitrates, retransmission rates, and signal strengths
+as wireless channel conditions change. As such, we need to design measurement
+approaches and tools that are also suitable for measuring wireless links.
+
+% --------- 3. Challenging measurement metric available bandwidth
+
+There are also challenges with metrics that measure available bandwidth.  In
+the view of mostly elastic traffic, partly in combination with wireless links,
+it is not clear whether a convincing solution can be expected. Moreover, with
+existing tools, probing for capacity does not work well with tools that assume
+that the link is work-conserving.
+
+% --------- 4. Traffic mixes at different parts of the network
+
+For many web-based applications, end-to-end traffic is split
+\cite{apathak:pam:2010} into a transport session from end system to the
+front-end servers, and another transport session to the backend
+infrastructure.  In the transport session to the front-end servers, many
+short-term TCP flows may be observed (in contrast to long-lived TCP flows in
+the transport session to the backend infrastructure). In such a scenario,
+protocols used to establish the transport session to the front-end servers can
+be changed quickly. For instance, \ac{QUIC} \cite{draft-tsvwg-quic-protocol},
+which is increasingly used to establish a transport session to the front-end
+servers, may behave more aggressively than TCP.
+
+% ---------- 5. Measurements of Low Latency Services
+% ---------- 7. Internet of Things (IoT) Measurements
+
+There is an increasing demand for low-latency communication.  Many
+technological advances reduce latency significantly. For instance, compared
+with 4G, 5G claims that it will reduce latency by a factor of 100. However, it
+is unclear how one can measure latency in these new environments with the
+required level of accuracy. The security aspects of \ac{IoT} devices are
+becoming critical. It is unclear whether there is a need for specialized
+measurement tools and methods in this space. An analysis of measurement
+challenges with respect to \ac{IoT} security is needed.
+
+% ---------- 6. Network Function Virtualisation Measurements
+
+A large number of network functions are being virtualised today.  It remains
+unclear how to measure in such virtualised scenarios. Additional measurement
+objectives and metrics need to be identified particularly due to the resource
+sharing effects of such virtual network functions.

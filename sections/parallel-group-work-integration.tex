@@ -1,0 +1,86 @@
+Lately there has been a rise in new and upcoming active measurement platforms
+\cite{vbajpai:comst:2015} on a more or less equivalent underlying substrate
+(Linux on small cheap boxes). It is unclear whether one can (or should)
+integrate the common parts of these platforms. There are legitimate reasons to
+have diversity. For instance, each platform is designed with a distinct goal
+and provides separate coverage of sources to measure from. However, there is a
+lot of hard but repetitive work to create a new platform and keep it working.
+It is also unclear whether all platforms measure the basic measurement
+primitives in the same way, or whether there are some differences. If we knew
+they all worked in the same way, then we would be able to compare their
+results and potentially perform combined studies for a more comprehensive
+study.  Furthermore, if the (common) test code was publicly available, then
+future developers would not need to expend efforts towards developing yet
+another version of the same measurement primitive.  As such, the idea is to
+start by building a common codebase / measurement OS distribution for building
+an integrated measurement platform.  The ingredients of this common codebase
+can include basic measurement utilities and package management tools.
+
+A large number of use cases are covered by a few measurement primitives: $a)$
+loss and latency using \texttt{ping}, $b)$ data-plane topology using
+\texttt{traceroute}, and $c)$ HTTP GET for applications. It is assumed that
+these primitives work the same everywhere for comparability reasons.  However,
+there is a need for cross-calibration studies to confirm this premise. A
+meta-API that glues APIs from multiple measurement platforms together would
+allow studies to include vantage points from multiple platforms. A design of a
+\ac{DSL} over these primitives implemented by the common substrate would
+further reduce the barrier to entry. A literature survey is needed to
+determine how much work such a common platform can save or how it would allow
+a measurement study to scale up.  Measurements also come with a prerequisite
+for data storage and archival. A volunteer cloud for storage of measurement
+results with data replication could help spread care and feeding labour and
+ensure cross-institutional continuity of measurement results.
+
+There are a number of challenges when integrating multiple measurement
+platforms. For one, reconciling design philosophies (simple vs. complex) is
+tricky. Seattle \cite{jcappos:sigcse:2009} is such an integrated measurement
+platform, albeit designed with a different goal to foster educational cloud
+computing but with a similar idea. However, the platform turns out to be an
+overkill for some simple use case scenarios. As such, a requirements
+description on necessary items for a minimal viable prototype is needed.  It
+is also unclear how to form a community around this goal. It certainly helps
+to make participants feel good about doing something beneficial for the
+Internet but having venues to disseminate experience helps bring more people
+on board.
+
+% -------- Step 0 - how to build/update -- system management
+
+The management of the system is a first step towards integration. A vanilla OS
+distribution with stripped down packages with additional cross-compiled
+packages provided as an overlay similar to the BISmark platform
+\cite{ssundaresan:usenix:2014} would be ideal. The goal should also be to
+allow the measurement suite to run inside a virtual machine.  Virtual
+environments help keep dependency issues to a minimum. Given probes are
+remotely managed, another challenge is to avoid an update that renders them
+permanently unusable.  BISmark uses a manual firmware update process with a
+possibility to fall-back to a trusted image to help mitigate this risk.
+Access control is another issue. It is unclear how much control the probe host
+must receive for hosting the probe.
+
+% -------- Step 1 - the measurement pieces.
+
+The second step is to identify the measurement primitives that must be
+supported. Some candidate primitives may include: \texttt{dig}, \texttt{ping},
+\texttt{curl}, \texttt{iperf} and a constant-bitrate packet generation tool.
+Including multiple variations of one primitive (such as \texttt{traceroute})
+that are designed with slightly different goals (such as \texttt{scamper}
+\cite{mluckie:imc:2010} and \texttt{tracebox} \cite{gdetal:imc:2013}) adds
+value. The possibility of hosting multiple versions of each primitives must be
+supported. The primitives themselves must also support a common
+machine-readable output format.  The ability of the primitives to write to a
+database (such as \texttt{sqlite}) increases the possibility of reuse since
+the results can simply be queried.  It is a challenge to provide an exhaustive
+list of primitives that satisfies all measurement studies. As such
+requirements gathering and a survey to scope the problem is needed. For
+instance, \texttt{tcpdump} may be useful, but it has privacy implications and
+shipping data produced by this primitive may be a sensitive issue. A survey
+to identify incremental benefits of each measurement primitive is needed.
+It is also unclear if exceptions must be made for certain primitives to run in
+root privilege mode.
+
+Furthermore, a number of future challenges were identified. For instance, a
+bootstrapping mechanism to get clients registered, an authentication mechanism
+to identify the clients, a server mechanism to be a destination for
+primitives, a communication channel to describe this client and server
+communication, an API to interface with measurement data, encryption and
+handling of key distribution are few identified areas that require work.

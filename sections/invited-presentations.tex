@@ -1,0 +1,109 @@
+%**************************************************************************
+\section{Invited Presentations}\label{sec:invited-presentations}
+%**************************************************************************
+
+The invited presentations were intended as a basis for triggering discussions
+and identifying areas for group work.
+
+% ------------ Henning Schulzrinne
+\subsection{Experiences from Measuring Networks}
+
+Henning Schulzrinne (Columbia University / FCC) began by sharing experiences
+gained through five iterations of the \ac{FCC} \ac{MBA} program \cite{mba},
+consisting of around 5,500 measurement hosts. The project is unique in that it
+is a collaboration between a regulator, a contractor (SamKnows
+\cite{vbajpai:comst:2015}) developing and managing the infrastructure, about a
+dozen consumer ISPs and their trade associations, backbone ISPs, two
+third-party measurement facilities (M-Lab \cite{cdovrolis:ccr:2010} and
+Level3) and university collaborators.  Establishing a code of conduct and
+setting up a (lightweight) collaborative structure early on has helped work
+through conflicts and deal with data quality challenges. Since these
+measurements are used by competing providers, e.g., in TV commercials, the
+stakes are perceived to be higher than just scientific discovery. The project
+emphasizes long-term comparability of measurements, open data and
+reproducibility. For example, all scripts and spreadsheets used to produce the
+annual report are made available.
+
+He described how the measurement report has changed, increasingly emphasizing
+variability in performance, across time and the user population, not just
+averages.  One of the more contentious issues has been dealing with unexpected
+soft and subtle failures of measurement infrastructure, e.g., memory leaks and
+Ethernet port speed issues, as well as what to consider outliers. For example,
+a time period was excluded from the measurement month used for reporting since
+it coincided with the download traffic of iOS 8.0. Users may also delay
+upgrading their cable modem, causing performance to drop below the offered
+rate. In the long term, the current model of deploying hardware to end users
+does not scale well. It is hoped that building in-measurement functionality,
+e.g., through the IETF \ac{LMAP} effort \cite{vbajpai:comst:2015}, rather than
+bolting it on later, will make measurement cheaper and more fine-grained.
+
+He also emphasized that network diagnostics and network measurements can be
+highly complementary. For example, the ability to diagnose network problems
+may motivate end users to install network measurement devices and software.
+His recent research at Columbia University on measuring performance of YouTube
+streaming videos \cite{hnam:infocom:2016} finds a close correlation between
+\ac{QoE} impairments and the abandonment of YouTube videos.
+
+%He describes how HTML5
+%elements in web browsers can be instrumented to gather data on video
+%resolution, buffer underflows and abandonment.
+
+%Henning also presented some of his measurement-based research at Columbia
+%University. His work on network diagnostics illustrates the close (and
+%productive) connection between network diagnostics and network measurements.
+%For instance, the YouSlow project \cite{hnam:infocom:2016} measures the
+%performance of YouTube streaming videos, finding a close correlation between
+%\ac{QoE} impairments and the abandonment of YouTube videos.
+
+% ------------ Daniel Karrenberg
+\subsection{Empirical Network Science}
+
+Daniel Karrenberg (RIPE NCC) shared experiences with doing empirical network
+science and derived some principles for good working practices from those
+experiences.  He began by underlining the importance of reproducibility as a
+necessary condition for producing scientific work. In order to enable
+reproducibility, it requires one to archive everything during a scientific
+process. During an experiment, observations must be collected as close to the
+wire as possible.  To avoid any mutation, the raw data derived from these
+observations must be archived with as little processing as possible. Virtual
+machines to build any software necessary should be encouraged. A good archive
+should also include documentation of the experiment such as immutable
+observations, metadata, experimental conditions, lab notes, calibration data,
+processed data, changelogs, comments, and analysis / publication backends. For
+instance, the experimental conditions must not only describe the state of the
+experiment but also document firmware/software versions to allow proper
+calibration.  Since metadata (such as IP geolocations, IP reverse DNS records,
+IP prefix to origin AS mappings) is dynamic and volatile, it must also be
+archived in 'near observation' time.  He encouraged the community to invest in
+storage not only for long term archival, but also to maximise headroom for
+future measurement results. He illustrated how around 2.1 PB of \ac{HDFS}
+\cite{twhite:oreilly:2015} storage is currently (as of January 2016) allocated
+(with around 400 TB in use) for archiving measurement data produced by the RIPE
+Atlas project. He reasoned that a well organised and maintained archive not
+only makes analysis and publication easy, but also enables reuse of
+observations in the long run.  Daniel related that data from some experiments
+in the RIPE Atlas public archive have indeed been re-used for different
+purposes. Furthermore providing basic controls to end-users enables unforeseen
+use of the measurement infrastructure as can be seen from creative usages of
+the RIPE Atlas measurement platform today.
+
+% ------------ Arthur Berger
+\subsection{Global Measurements at Akamai}
+
+Based on experiences with the global measurement platform of Akamai
+Technologies, and relevant to the suggested topics for the seminar, Arthur
+Berger (Akamai Technologies) discussed three example performance metrics: $a)$
+active measurements of latency and loss, which is used in Request Routing
+\cite{fchen:sigcomm:2015} to pick the best datacenter from which to serve a
+given client, $b)$ active measurements of latency and loss between Akamai
+servers, which is used to determine the via nodes in the Akamai routing
+overlay network \cite{rsitaraman:wiley:2014} and $c)$ passive measurements of
+video downloads to clients, which shows the likelihood of abandonment by the
+end-user as a function of start-up time \cite{skrishnan:imc:2012}, indexed by
+the subject category of the video, such as sports, news or religion.  He then
+discussed Akamai's processing of passive measurements recorded in log lines
+which consists of 1.2 PB data generated per day. He demonstrated where to find
+publicly available measurement results on Akamai's website \cite{soti}.
+Lastly, he suggested that an area that deserves more attention by the Internet
+measurement community is security and gave examples of some security
+measurements collected by Akamai.

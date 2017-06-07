@@ -1,0 +1,37 @@
+There is currently lack of a best current practice guide on how to store,
+process and archive measurement data. It seems that academics generally tend
+to rely on a \ac{NAS} coupled with a few highly performant data crunching
+machines for data analysis operations.
+
+One clear recommendation is to transition away from \ac{NAS} because they
+cannot provide local computing power. Apache Hadoop \cite{twhite:oreilly:2015}
+is a better alternative since it provides a tight coupling of storage and
+compute power, scales gradually over time and in the process turns out to be
+cost effective.  \ac{CDH} packages \cite{twhite:oreilly:2015} provide a simple
+head start into the Hadoop ecosystem.  They can be used to deploy the Hadoop
+cluster and packages provide tools to make management easy.  A transition to
+Hadoop can be done in multiple iterations. A first step is to get it
+functional by storing already existing measurement data in CSV or JSON format.
+However, in the long run a good serialization format such as Apache Avro
+\cite{twhite:oreilly:2015} (for row-oriented datasets) or Apache Parquet
+\cite{twhite:oreilly:2015} (for columnar storage) can help future proof
+storage in a structured format. Naturally, it is better to make a choice at
+the very outset of data collection. HBase \cite{twhite:oreilly:2015}, a
+non-relational database that can run on top of \ac{HDFS}, can be used for high
+performance analysis for specialised applications, although it tends to have a
+steeper learning curve especially for SQL users.  Cloudera Impala adds an SQL
+engine on top of \ac{HDFS}.  GraphQL can be used to decouple presentation from
+querying on the data.  Message queues such as RabbitMQ can be used for
+stream-based processing requirements. A recently developed large-scale active
+measurement platform for DNS \cite{roland:sigcomm:2015} uses Hadoop for
+storage and analysis of data.  Experiences with this platform show that there
+is potential for using Hadoop for Internet measurements.
+
+Certainly the Hadoop tool chain is not the answer to all problems. It must be
+viewed as \ac{HDFS} for storage with optional powerful processing on top.
+Although at times, a powerful machine with lots of computing cores can also
+serve the same task at hand.  As such, at the end the size of the data
+matters. Hadoop distributes I/O and processing and thus it can crunch large
+volumes of data in short time. A single fast machine has I/O limits and may
+have CPU / memory limits that are difficult to scale (but it is often the I/O
+limit that is difficult or expensive to change).

@@ -1,0 +1,61 @@
+%**************************************************************************
+\section{Introduction}\label{sec:introduction}
+%**************************************************************************
+
+%------------------------ Motivation
+
+Several large-scale Internet measurement platforms have been deployed during
+the last years in order to understand how the Internet is performing, to
+observe how it is evolving, and to determine where failures or degradations
+occur. Examples are the CAIDA \ac{Ark} platform \cite{kclaffy:ccr:2016} (used
+for Internet topology discovery and detecting congestion on interdomain
+links), the SamKnows platform \cite{vbajpai:comst:2015} (used by regulators
+and network operators to study network performance), the RIPE Atlas platform
+\cite{ripencc:ipj:2015, vbajpai:ccr:2015} (that provides measurement services
+to network operators and researchers), the Netradar system
+\cite{ssonntag:wiopt:2013} (for performing wireless performance measurements),
+and the BISmark project \cite{ssundaresan:usenix:2014}.  European
+collaborative research projects lately have been working on a \ac{mPlane}
+\cite{btrammell:commag:2014} and how to incorporate measurement results into
+network management systems (e.g., Leone) \cite{leone}. Related projects (e.g.,
+Flamingo) \cite{flamingo} are increasingly working with measurement data from
+these platforms.  Large-scale measurements are meanwhile also used to drive
+network operations or to dynamically adjust how services are delivered to
+customers. \ac{CDN} providers use measurement data to optimize content caches
+and to tune load balancing algorithms. One key challenge is that global
+Internet measurement systems can generate large amounts of data that need to
+be processed to derive relevant information.
+
+%------------------------ Goals
+
+This seminar (\#16012) was a followup of the Dagstuhl seminar on Global
+Measurement Frameworks (\#13472) \cite{peardley:dagstuhl:2013}. The main focus
+of the first seminar was an exchange of ideas on the development of global
+measurement infrastructures, frameworks and associated metrics. Some of this
+work is now further pursued in standardization bodies
+\cite{vbajpai:comst:2015}  such as the IETF \ac{LMAP} working group and the
+Broadband Forum.  The goal of this followup seminar was to focus on the
+experience obtained with different metrics, tools, and data analysis
+techniques. It provided a forum for researchers to exchange their experience
+with different practices to conduct global measurements. The aim was to
+identify what works well in certain contexts, what has proven problematic in
+other contexts, and identify open issues that need further research.
+
+The seminar approached this by looking at three distinct dimensions: $a)$
+Measurement metrics, $b)$ data processing technologies and $c)$ data analysis
+methodologies. Some key questions were: $a)$ Which metrics have been found
+useful for measuring \ac{QoE} of certain classes of services?  Which metrics
+have been found problematic? Is it possible to find indicators for good
+metrics and problematic metrics?, $b)$ Which technologies have been found
+useful for storing and processing large amounts of measurement data?  Which
+technologies were found to be problematic?  Are there new promising
+technologies that may be used in the future? What are the specific
+requirements for dealing with large-scale measurement data and how do they
+relate to or differ from other big data applications? and $c)$ Which data
+analysis techniques have been found to be useful? Which data analysis
+techniques have been found to be problematic? Are there any novel promising
+techniques that need further research and development?
+
+Although at the seminar the participants chose to organize the discussions on
+more general topics than these specific questions, during the discussions most
+of these questions were addressed to one degree or another.

@@ -1,0 +1,38 @@
+Repeatability and reproducibility are often misinterpreted in practice.
+Repeatability is the notion of re-running the same experiment with a change in
+time. Reproducibility on the other hand is being able to derive the same
+conclusions with a change in both space and time.  Reproducibility imbibes the
+flexibility of using different measurement methods to arrive at the same
+conclusion.  In order to foster reproducibility, a number of aspects need to
+be documented: $a)$ measurement method, $b)$ metric, $c)$ vantage points and
+$d)$ implementation.  This requires a characterisation plan of statistical
+tests to imply significance of data analysis.
+
+There are a number of difficulties in reproducing an experiment.  For one,
+statistical analysis is hard. There is a danger of confirmation bias with a
+tendency to abandon experiments if results are boring.  It is often not
+possible to measure the metric directly (or only as a one-off calibration)
+since generally there is a lack of stable ground truth.  Moreover, it is
+difficult to publish a study that reproduces an experiment. Worse, documenting
+the limitations of an experiment is often (wrongly) seen as a weakness.
+Particularly, sharing datasets of an experimental study with others is hard.
+For one, legal rules vary by jurisdiction but more so one wants to have a
+first mover advantage with the associated data collection activity.
+
+There is a need to add rigour in statistical analysis to enable
+reproducibility.  This starts with hypothesis testing and concrete research
+questions. Factor analysis during the experimental design to cover the design
+space of variables is often ignored. Outliers that fail hypothesis need
+treatment. As such, a prospective journal that invites reproducibility would
+help reduce probability of early abandonment of experiments that confirm
+previous results. Calibration and quality checks must be encouraged.
+Conferences can be encouraged to dedicate special sessions devoted to papers
+that reproduce results. Researchers on the other hand must be encouraged to
+write a technical report that describes the dataset used in a publication.
+Such a report must document the measurement method, dataset fields,
+limitations and scope of the dataset.  There are \ac{QoE} standards that
+provide test conditions and advice on where the measurement method is
+applicable. In cases where raw dataset cannot be shared for some reason,
+researchers must still be encouraged to share the dataset in at least some
+restricted form by either removing some data columns, obfuscating some fields,
+or by allowing limited access to the dataset using SQL queries.
